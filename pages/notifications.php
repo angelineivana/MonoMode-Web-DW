@@ -75,7 +75,7 @@ if (!$query) {
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white " href="dashboard.html">
+          <a class="nav-link text-white" href="dashboard.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -87,7 +87,7 @@ if (!$query) {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Table 1</span>
+            <span class="nav-link-text ms-1">TransBranch Table</span>
           </a>
         </li>
         <li class="nav-item">
@@ -95,7 +95,7 @@ if (!$query) {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Table 2</span>
+            <span class="nav-link-text ms-1">TransBranchProd Table</span>
           </a>
         </li>
         <li class="nav-item">
@@ -103,7 +103,7 @@ if (!$query) {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Table 3</span>
+            <span class="nav-link-text ms-1">TransProd Table</span>
           </a>
         </li>
         <li class="nav-item">
@@ -111,7 +111,7 @@ if (!$query) {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Table 4</span>
+            <span class="nav-link-text ms-1">TransProdCust Table</span>
           </a>
         </li>
         <li class="nav-item">
@@ -119,7 +119,7 @@ if (!$query) {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Table 5</span>
+            <span class="nav-link-text ms-1">Customer_Total_Purchase Table</span>
           </a>
         </li>
         <li class="nav-item">
@@ -127,36 +127,9 @@ if (!$query) {
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Table 6</span>
+            <span class="nav-link-text ms-1">Branch_Revenue Table</span>
           </a>
         </li>
-        <!-- <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/profile.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-in.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">login</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-up.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li> -->
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
@@ -216,53 +189,7 @@ if (!$query) {
           </div>
         </div>
       </div>
-      <!-- <div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Projects table</h6>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Project</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Budget</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Completion</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($query)) {
-                          echo "<tr>";
-                          echo "<td>";
-                          echo "<div class='d-flex px-2 py-1'>";
-                          echo "<div class='d-flex flex-column justify-content-center'>";
-                          echo "<h6 class='mb-0 text-sm'>" . $row['cust_id'] . "</h6>";
-                          echo "</div>";
-                          echo "</div>";
-                          echo "</td>";
-                          echo "<td>";
-                          echo "<p class='text-xs font-weight-bold mb-0'>" . $row['cust_name'] . "</p>";
-                          echo "</td>";
-                          echo "<td class='align-middle text-center text-sm'>";
-                          echo "<p class='text-xs font-weight-bold mb-0'>" . $row['total_purchase'] . "</p>";
-                          echo "</td>";
-                          echo "</tr>";
-                        }
-                        ?>
-                      </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+
     </div>
   </main>
   <div class="fixed-plugin">
@@ -299,26 +226,6 @@ if (!$query) {
           </div>
         </a>
         <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
-            onclick="sidebarType(this)">Dark</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
-            onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
-            onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3 d-flex">
-          <h6 class="mb-0">Navbar Fixed</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-          </div>
-        </div>
         <hr class="horizontal dark my-3">
         <div class="mt-2 d-flex">
           <h6 class="mb-0">Light / Dark</h6>
