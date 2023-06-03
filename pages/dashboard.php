@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $user = "root";
-$pass = "root";
-$dbname = "db_ecommweb_olap";
+$pass = "";
+$dbname = "db_olaps";
 
 $conn = new mysqli($servername, $user, $pass, $dbname);
 

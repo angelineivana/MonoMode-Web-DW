@@ -1,8 +1,8 @@
 <?php
-    $servername="localhost";
-    $user="root";
-    $pass="root";
-    $dbname="db_ecommweb_olap";
+    $servername = "localhost";
+    $user = "root";
+    $pass = "";
+    $dbname = "db_olaps";
 
     $conn= new mysqli($servername, $user, $pass, $dbname);
 
@@ -47,6 +47,23 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
+  <script>
+  function filterTable() {
+    var input = document.getElementById('searchInput');
+    var filter = input.value.toLowerCase();
+    var rows = document.querySelectorAll('.table-row');
+
+    rows.forEach(function(row) {
+      var branchName = row.querySelector('h6').innerText.toLowerCase();
+
+      if (branchName.includes(filter)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+</script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -121,6 +138,18 @@
     </div>    
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+    
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            <div class="input-group input-group-outline">
+              <label class="form-label">Filter by Branch_Name...</label>
+              <input type="text" class="form-control" id="searchInput" oninput="filterTable()">
+            </div>
+        </div>
+      </div>
+    </nav>
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-12">
@@ -145,7 +174,7 @@
                   <tbody id="tableBody">
                     <?php
                     while ($row = mysqli_fetch_assoc($query)) {
-                      echo "<tr>";
+                      echo "<tr class='table-row'>";
                       echo "<td>";
                       echo "<div class='d-flex px-2 py-1'>";
                       echo "<div class='d-flex flex-column justify-content-center'>";
@@ -236,28 +265,6 @@
       Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
     }
   </script>
-
-    <script>
-      function filterTable() {
-        // Get the input value and convert it to lowercase
-        var input = document.getElementById("branchSearchInput").value.toLowerCase();
-
-        // Get all the rows in the table body
-        var table = document.getElementById("TransBranchProdTbl");
-        var rows = table.querySelectorAll("#tableBody tr");
-
-        // Loop through all the rows and hide those that don't match the search input
-        for (var i = 0; i < rows.length; i++) {
-          var branchName = rows[i].querySelector("td:first-child").innerText.toLowerCase();
-
-          if (branchName.includes(input)) {
-            rows[i].style.display = "";
-          } else {
-            rows[i].style.display = "none";
-          }
-        }
-      }
-    </script>
 
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
